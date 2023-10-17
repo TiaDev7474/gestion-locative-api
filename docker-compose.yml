@@ -1,15 +1,15 @@
 version: '3.8'
 services:
   location-db: 
-    image: postgres:latest
-    container_name: postgres
-    hostname: postgres
+    image: postgres:13
+    restart: always
+    hostname: ${DB_HOST}
     ports:
-       - "5432:5434"
-    environment:
-       POSTGRES_USER: postgres
-       POSTGRES_PASSWORD: 123
-       POSTGRES_DB: location
+      - ${DB_PORT}:5434
+    environment: 
+       POSTGRES_USER: ${DB_USERNAME}
+       POSTGRES_PASSWORD: ${DB_PASSWORD}
+       POSTGRES_DB: ${DB_NAME}
     networks:
       - location
 networks:

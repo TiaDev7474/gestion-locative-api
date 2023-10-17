@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
-import { PostModule } from './post/post.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
+import { PropertyModule } from './property/property.module';
+import { MailerModule } from './mailer/mailer.module';
+import { CronModule } from './cron/cron.module';
 
 @Module({
   imports: [
@@ -13,8 +15,10 @@ import { ConfigModule } from '@nestjs/config';
     }),
     AuthModule,
     UserModule,
-    PostModule,
     PrismaModule,
+    PropertyModule,
+    MailerModule,
+    CronModule,
   ],
 })
 export class AppModule {}
